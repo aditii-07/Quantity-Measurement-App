@@ -1,60 +1,14 @@
 public class QuantityMeasurementApp {
-
-    enum LengthUnit {
-        FEET(1.0),
-        INCH(1.0 / 12.0);
-
-        private final double toFeetFactor;
-
-        LengthUnit(double toFeetFactor) {
-            this.toFeetFactor = toFeetFactor;
-        }
-
-        public double toFeet(double value) {
-            return value * toFeetFactor;
-        }
-    }
-
-    static class Quantity {
-        private final double value;
-        private final LengthUnit unit;
-
-        public Quantity(double value, LengthUnit unit) {
-            if (unit == null) {
-                throw new IllegalArgumentException("Unit cannot be null");
-            }
-            this.value = value;
-            this.unit = unit;
-        }
-
-        private double toBase() {
-            return unit.toFeet(value);
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj) return true;
-            if (obj == null || getClass() != obj.getClass()) return false;
-            Quantity other = (Quantity) obj;
-            return Double.compare(this.toBase(), other.toBase()) == 0;
-        }
-
-        @Override
-        public int hashCode() {
-            return Double.hashCode(toBase());
-        }
-    }
-
     public static void main(String[] args) {
 
-        Quantity q1 = new Quantity(1.0, LengthUnit.FEET);
-        Quantity q2 = new Quantity(12.0, LengthUnit.INCH);
+        Quantity q1 = new Quantity(1.0, LengthUnit.YARDS);
+        Quantity q2 = new Quantity(3.0, LengthUnit.FEET);
 
-        System.out.println("Are equal? " + q1.equals(q2));
+        System.out.println("Equal: " + q1.equals(q2));
 
-        Quantity q3 = new Quantity(1.0, LengthUnit.INCH);
-        Quantity q4 = new Quantity(1.0, LengthUnit.INCH);
+        Quantity q3 = new Quantity(1.0, LengthUnit.CENTIMETERS);
+        Quantity q4 = new Quantity(0.393701, LengthUnit.INCHES);
 
-        System.out.println("Are equal? " + q3.equals(q4));
+        System.out.println("Equal: " + q3.equals(q4));
     }
 }
