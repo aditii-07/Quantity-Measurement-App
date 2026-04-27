@@ -1,14 +1,17 @@
 public class QuantityMeasurementApp {
+
     public static void main(String[] args) {
 
-        Quantity q1 = new Quantity(1.0, LengthUnit.YARDS);
-        Quantity q2 = new Quantity(3.0, LengthUnit.FEET);
+        System.out.println("Feet to Inches: " +
+                QuantityLength.convert(1.0, LengthUnit.FEET, LengthUnit.INCHES));
 
-        System.out.println("Equal: " + q1.equals(q2));
+        System.out.println("Yards to Feet: " +
+                QuantityLength.convert(3.0, LengthUnit.YARDS, LengthUnit.FEET));
 
-        Quantity q3 = new Quantity(1.0, LengthUnit.CENTIMETERS);
-        Quantity q4 = new Quantity(0.393701, LengthUnit.INCHES);
+        System.out.println("Inches to Yards: " +
+                QuantityLength.convert(36.0, LengthUnit.INCHES, LengthUnit.YARDS));
 
-        System.out.println("Equal: " + q3.equals(q4));
+        System.out.println("CM to Inches: " +
+                QuantityLength.convert(1.0, LengthUnit.CENTIMETERS, LengthUnit.INCHES));
     }
 }
