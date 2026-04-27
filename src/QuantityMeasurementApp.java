@@ -5,10 +5,17 @@ public class QuantityMeasurementApp {
         QuantityLength q1 = new QuantityLength(1.0, LengthUnit.FEET);
         QuantityLength q2 = new QuantityLength(12.0, LengthUnit.INCHES);
 
-        QuantityLength result = QuantityLength.add(q1, q2);
+        QuantityLength resultFeet =
+                QuantityLength.add(q1, q2, LengthUnit.FEET);
 
-        System.out.println("Result: " + result);
-        QuantityLength result2 = QuantityLength.add(q2, q1);
-        System.out.println("Reverse Result: " + result2);
+        QuantityLength resultInches =
+                QuantityLength.add(q1, q2, LengthUnit.INCHES);
+
+        QuantityLength resultYards =
+                QuantityLength.add(q1, q2, LengthUnit.YARDS);
+
+        System.out.println(resultFeet);   // 2.0 FEET
+        System.out.println(resultInches); // 24.0 INCHES
+        System.out.println(resultYards);  // ~0.667 YARDS
     }
 }
