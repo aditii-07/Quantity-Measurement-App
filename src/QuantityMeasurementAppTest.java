@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QuantityMeasurementAppTest {
-
     @Test
     void testAddition_SameUnit_FeetPlusFeet() {
         QuantityLength q1 = new QuantityLength(1, LengthUnit.FEET);
