@@ -26,7 +26,6 @@ public class Quantity<U extends IMeasurable> {
         return unit;
     }
 
-    // ✅ Conversion
     public Quantity<U> convertTo(U targetUnit) {
         if (targetUnit == null)
             throw new IllegalArgumentException("Target unit cannot be null");
@@ -37,12 +36,10 @@ public class Quantity<U extends IMeasurable> {
         return new Quantity<>(round(converted), targetUnit);
     }
 
-    // ✅ Addition (default: first unit)
     public Quantity<U> add(Quantity<U> other) {
         return add(other, this.unit);
     }
 
-    // ✅ Addition (explicit target unit)
     public Quantity<U> add(Quantity<U> other, U targetUnit) {
         if (other == null || targetUnit == null)
             throw new IllegalArgumentException("Invalid input");
@@ -61,7 +58,6 @@ public class Quantity<U extends IMeasurable> {
         return new Quantity<>(round(result), targetUnit);
     }
 
-    // ✅ Equality
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
