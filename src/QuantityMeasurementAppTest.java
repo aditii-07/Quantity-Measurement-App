@@ -4,7 +4,7 @@ import com.measurement.weight.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class QuantityMeasurementTest {
+public class QuantityMeasurementAppTest {
 
     @Test
     void testEquality_Kg_Gram() {
